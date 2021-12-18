@@ -1,0 +1,68 @@
+*{margin:0px;
+padding:0px;
+}
+
+.homepage{
+    display:flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.header{
+    font-size:x-large;
+    color:violet;
+    width:100%;
+    height:5vh;
+    /* text-align: center; */
+    background-color: wheat;
+}
+
+.players{
+    display:flex;
+    justify-content: space-between;
+    background-color: yellowgreen;
+    width:100%;
+    height:25vh;
+
+}
+
+.player1 {
+width:20vw;
+height:20vh;
+border:purple solid ;
+text-align:center
+}
+
+.player2 {
+width:20vw;
+height:20vh;
+border:blue solid ;
+text-align:center
+}
+
+.masterq {
+width:40vw;
+height:20vh;
+border:gold solid;
+text-align:center
+}
+
+.qgrid{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: turquoise;
+    width:80%;
+    height:55vh;
+    border:crimson solid 1em;
+}
+
+.footer{
+    display:flex;
+    justify-content: space-evenly;
+    background-color: yellowgreen;
+    width:100%;
+    height:20vh;
+}
