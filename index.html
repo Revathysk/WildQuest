@@ -12,32 +12,60 @@
 <body>
 
     <div class='homepage'>
+        <div class='header' id='firstDiv'> Wild -Quest </div>
 
-        <div class='header'> Wild -Quest </div>
-
-        <div class='players'>
-            <div class="player1"> Player 1 </div>
-            <div class='masterq'> Winning Quest</div>
-            <div class="player2"> Player 2 </div>
+        <div class='players' id='secondDiv'>
+            <div class="player1 hide" id='player1Div'> Player 1 </div>
+            <div class="masterq hide" id='masterqDiv'> Winning Quest </div>
+            <div class="player2 hide" id='player2Div'> Player 2 </div>
+        </div>
+        
+        <div class='instructions' id='instructDiv'>
+            <p> Wild Quest is 2 player quiz game.</p> <br>
+            <p> Press start button, nine box will be displayed. </p> <br>
+            <p> Player 1 will get chance to click on one of the box. </p><br>
+            <p> A hint about the animal and fact will popup.</p> <br>
+            <p> Type in your guess in textbox and press submit. </p> <br>
+            <p> In case of correct answer player gets a point. Take turns. </p><br>
+            <p> Any player reaching 5 points gets to unlock Win Quest & correct guess, wins the game. </p><br>
         </div>
 
-        <div class='qgrid'>
-            <li class="quest1">Quest 1</li>
-            <li class="quest2">Quest 2</li>
-            <li class="quest3">Quest 3</li>
-            <li class="quest4">Quest 4</li>
-            <li class="quest5">Quest 5</li>
-            <li class="quest6">Quest 6</li>
-            <li class="quest7">Quest 7</li>
-            <li class="quest8">Quest 8</li>
-            <li class="quest9">Quest 9</li>
+        <div id='continueDiv'> 
+            <button class='button' id='continueButton' onclick="gameDisplay()"> Contiune </button> 
         </div>
 
-        <div class='footer'>
-            <div class="start"> Start/Restart </div>
-            <div class="checkAnswer"> WildQ </div>
+        <div class='qgrid hide' id='thirdDiv'>
+            <div class="qbox grid1" onclick="displayHint()">Quest 1 </div>
+            <div class="qbox grid2">Quest 2 </div>
+            <div class="qbox grid3">Quest 3 </div>
+            <div class="qbox grid4">Quest 4 </div>
+            <div class="qbox grid5">Quest 5 </div>
+            <div class="qbox grid6">Quest 6 </div>
+            <div class="qbox grid7">Quest 7 </div>
+            <div class="qbox grid8">Quest 8 </div>
+            <div class="qbox grid9">Quest 9 </div>            
         </div>
+        
+        <div class='footer' id='fourDiv'>
 
+            <div class='hide' id='startDiv'>
+                <button class='button' id='startButton' onclick="playerName()">
+                    START
+                    <!-- <img id="buttonimage" src="./images/square button.jfif" alt="start button"> -->
+                </button>
+            </div>
+
+            <div class='hide' id='answerDiv'> 
+                <label for="answer"> Guess </label>
+                <input type="text" id='answer'>
+            </div>
+
+            <div class='hide' id='submitDiv'>
+                <button class='button' id='submitButton'>CHECK</button>
+            </div>
+
+        </div> 
+        <!-- footer ends here -->
     </div>
 
     <script src="js/script.js"></script>
