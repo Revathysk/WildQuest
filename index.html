@@ -16,13 +16,20 @@
 
         <div class='players' id='secondDiv'>
             <div class="player1 hide" id='player1Div'> Player 1 </div>
-            <div class="masterq hide" id='masterqDiv'> Winning Quest </div>
+
+            <div class="masterq hide" id='masterqDiv'> 
+                <label for="winGame">  </label>  
+                    <input class='hide' type="text" name='option1' id='radioBox1' value='a'>
+                    <input class='hide' type="text" name='option2' id='radioBox2' value='b'>
+                    <input class='hide' type="text" name='option3' id='radioBox3' value='c'>                 
+            </div>
+
             <div class="player2 hide" id='player2Div'> Player 2 </div>
         </div>
-        
+         
         <div class='instructions' id='instructDiv'>
-            <p> Wild Quest is 2 player quiz game.</p> <br>
-            <p> Press start button, nine box will be displayed. </p> <br>
+            <p> Wild Quest is 2 player quiz game for kids.</p> <br>
+            <p> A you press contiune, 9 blocks will be displayed.</p> <br>
             <p> Player 1 will get chance to click on one of the box. </p><br>
             <p> A hint about the animal and fact will popup.</p> <br>
             <p> Type in your guess in textbox and press submit. </p> <br>
@@ -33,22 +40,27 @@
         <div id='continueDiv'> 
             <button class='button' id='continueButton' onclick="gameDisplay()"> Contiune </button> 
         </div>
-
+        
         <div class='qgrid hide' id='thirdDiv'>
-            <div class="qbox grid1" onclick="displayHint()">Quest 1 </div>
-            <div class="qbox grid2">Quest 2 </div>
-            <div class="qbox grid3">Quest 3 </div>
-            <div class="qbox grid4">Quest 4 </div>
-            <div class="qbox grid5">Quest 5 </div>
-            <div class="qbox grid6">Quest 6 </div>
-            <div class="qbox grid7">Quest 7 </div>
-            <div class="qbox grid8">Quest 8 </div>
-            <div class="qbox grid9">Quest 9 </div>            
+            <div class="qbox grid1" onclick="displayHint('grid1')"> 
+                <img src="" alt="">
+            </div>
+            <div class="qbox grid2" onclick="displayHint('grid2')">
+                <img src="" alt="">
+            </div>
+            <div class="qbox grid3" onclick="displayHint('grid3')">  </div>
+            <div class="qbox grid4" onclick="displayHint('grid4')">  </div>
+            <div class="qbox grid5" onclick="displayHint('grid5')">  </div>
+            <div class="qbox grid6" onclick="displayHint('grid6')">  </div>
+            <div class="qbox grid7" onclick="displayHint('grid7')">  </div>
+            <div class="qbox grid8" onclick="displayHint('grid8')">  </div>
+            <div class="qbox grid9" onclick="displayHint('grid9')">  </div>                     
         </div>
         
         <div class='footer' id='fourDiv'>
 
             <div class='hide' id='startDiv'>
+                <!-- <button class='button' id='startButton' onclick="playerName()"> -->
                 <button class='button' id='startButton' onclick="playerName()">
                     START
                     <!-- <img id="buttonimage" src="./images/square button.jfif" alt="start button"> -->
@@ -57,11 +69,11 @@
 
             <div class='hide' id='answerDiv'> 
                 <label for="answer"> Guess </label>
-                <input type="text" id='answer'>
+                <input type="text" id='textBox'>
             </div>
 
             <div class='hide' id='submitDiv'>
-                <button class='button' id='submitButton'>CHECK</button>
+                <button class='button' id='submitButton' onclick="checkAnswer()">CHECK</button>
             </div>
 
         </div> 

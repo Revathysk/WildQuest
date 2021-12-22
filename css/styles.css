@@ -79,23 +79,24 @@ padding:0px;
     width:50vw;
     height:50vh;
     border-radius:10%;
-    border:black solid 1rem;
+    border:black solid 1em;
     color:black;
+    font-size: large;
 }
 
 .qgrid{
     display:grid;
     grid-template-columns: repeat(3,1fr); 
-    width: 45%;
-    height:55vh;
+    width: 55%;
+    height:60vh;
     color:aliceblue;
     font-size: 15px;      
 }
 
 .qbox{
     background-color:rgba(36, 100, 109, 0.719);
-    width: 10vw;
-    height: 15vh;
+    width: 12vw;
+    height: 16vh;
     -webkit-border-radius: 15px;
     box-shadow: 0px 0px 10px 10px white;
 }
@@ -120,11 +121,15 @@ padding:0px;
     border-radius: 50%;
     box-shadow: 0px 0px 10px 10px white;
 }
-.checkAnswer{
-    font-size: x-large;
-}
 
-#answer {
+/* .checkAnswer{
+    font-size: large;
+} */
+
+#answerDiv{
+    font-size: xx-large;
+}
+#textBox {
     width:15vw;
     height: 5vh;
 }
