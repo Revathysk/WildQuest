@@ -12,7 +12,7 @@
 <body>
 
     <div class='homepage'>
-        <!-- <img src="../images/safari-animal.jpg"  alt="safari animals"> -->
+        
         <div class='header' id='firstDiv'> Wild -Quest </div>
 
         <div class='players' id='secondDiv'>
@@ -27,18 +27,19 @@
 
         <div class='instructions' id='instructDiv'>
             <p> Wild Quest is 2 player quiz game for kids.</p> <br>
-            <p> A you press contiune, 9 blocks will be displayed.</p> <br>
-            <p> Player 1 will get chance to click on one of the box. </p><br>
-            <p> A hint about the animal and fact will popup.</p> <br>
+            <p> As you press contiune, 9 blocks will be displayed.</p> <br>
+            <p> Click start to enter Player names. Player 1 gets first turn </p><br>
+            <p> Click on any one of 9 boxs in the middel. A hint & fact about the animal is displayed.</p> <br>
             <p> Type in your guess in textbox and press submit. </p> <br>
-            <p> In case of correct answer player gets a point. Take turns. </p><br>
-            <p> Any player reaching 5 points gets to unlock Win Quest & correct guess, wins the game. </p><br>
+            <p> Player gets a point for correct answer. Take turns. </p><br>
+            <p> Any player reaching 5 points, get to unlock Win Quest & correct guess, wins the game. </p><br>
         </div>
 
         <div id='continueDiv'>
             <button class='button' id='continueButton' onclick="gameDisplay()"> Contiune </button>
         </div>
-
+        
+        <!-- grid for 9 boxs to display questions -->
         <div class='middleDiv hide' id='thirdDiv'>
             <div class='p1Score'> </div>
             <div class='qgrid' id='qgridDiv'>
@@ -63,9 +64,7 @@
 
             <div class='hide' id='startDiv'>
                 <button class='button' id='startButton' onclick="playerName()">
-                    <!-- <button class='button' id='startButton' onclick="winningQuest('rev')"> -->
-                    START
-                    <!-- <img id="buttonimage" src="./images/square button.jfif" alt="start button"> -->
+                    START                    
                 </button>
             </div>
 
