@@ -1,3 +1,4 @@
+
 // Query selectors to display changes in DOM
 const p1Name = document.querySelector("#player1Div");
 const p2Name = document.querySelector("#player2Div");
@@ -5,14 +6,15 @@ const answer = document.querySelector('#textBox');
 let p1Count = 0;
 let p2Count = 0;
 let counter = 0;
-let winQcount = 0;
+let winQcount = 11;
 let counterMax = 9;
 let index= -1;
 let gridSelect='';
 const quiz = [
 	{
 		question: "Name the eagle that feeds on monkey and sloth",
-		correctAns: 'harpy'        
+		correctAns: 'harpy'
+
 	},
 	{
 		question: "Animal with 4 stomach, has red nose",
@@ -49,22 +51,18 @@ const quiz = [
     {
 		question: "I'm slow in moving...can sleep for 3 years continuously",
 		correctAns: 'snail' 
-    }
-];
-const winquiz=[
-    {
-        question : 'An adult Elephant weighs ',
-                a:'800 to 900 pounds',
-                b:'1000 to 2000 pounds',
-                c:'5000 to 14000 pounds',              
-        rightAns : 'c'
     },
     {
-        question : 'Male animal that gives birth to offsprings',
-                a:'Seahorse',
-                b:'Whale',
-                c:'Shark',
-        rightAns : 'a'  
+        question :'An average African elephant weighs about 12,000 pounds. Type in true or false',
+        correctAns:'true'
+    },
+    {
+        question : 'Male animal that gives birth to offsprings',                
+        correctAns :'seahorse'
+    },
+    {
+        question : 'I built not just dam but lodge too with orange teeth',                
+        correctAns :'beavers'
     }
 ];    
 
@@ -102,59 +100,88 @@ function gameDisplay(){
     submitDiv.classList.toggle('hide');
 }
 
-function winningQuest() {
+function winningQuest(player) {
+    document.querySelector('#masterqDiv').backgroundColor= 'blue';
+    document.querySelector('#masterqDiv').innerText = quiz[winQcount].question; 
+    setTimeout(() => {
+       checkMasterQ(player);    
+    }, 20000);      
+}
+     
+function checkMasterQ(player) {
     
-    document.querySelector('#radioBox1').classList.toggle('hide');
-    document.querySelector('#radioBox2').classList.toggle('hide');
-    document.querySelector('#radioBox3').classList.toggle('hide');
-    document.querySelector('#masterqDiv').innerText = winquiz[0].question;
-    document.querySelector('#radioBox1').innerText = winquiz[0].question;
-    document.querySelector('#radioBox2').innerText = winquiz[0].b;
-    document.querySelector('#radioBox3').innerText = winquiz[0].c;
-    
-    for( let i=1; i<=3; i++ ) {
-        let playerAns = document.querySelector(`input[name="option"+${i}]:checked`)
-        if (playerAns === winquiz[i-1].correctAns){
-            console.log("You won");
-        }
+    let getinput = answer.value.toLowerCase();
+
+    if (getinput === quiz[winQcount].correctAns) {
+        answer.style.backgroundColor = 'green';
+        document.querySelector('#masterqDiv').innerText=`Congrats! ${player},you won. Press Start, to try again`;
+        
+        //confetti code
+        //inlcude confetti.js code in script.js
+        //document.writeln("<script type='text/javascript' src='js/confetti.js'></script>");
+        const start = () => {
+            setTimeout(function() {
+                confetti.start()
+            }, 500); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+
+        //  for stopping the confetti 
+        const stop = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 2000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        // after this here we are calling both the function so it works
+        confetti.start();
+        confetti.stopt();
     }
+    else {
+        answer.style.backgroundColor = 'yellow';
+        document.querySelector('#masterqDiv').innerText= `${player}! Good job making it to Winning Quest`;        
+    }
+    winQcount++;       
 }
 
 function checkAnswer()
 {
     let getinput = answer.value.toLowerCase();
+    // let imageSelect = '#image'+ counter;
     console.log (getinput);
+
     if (getinput === quiz[counter].correctAns && counter%2 === 0) {
         p1Count++;
         console.log('player 1 gets a point');        
         document.querySelector(gridSelect).innerText=p1Name.innerText;
+        // document.querySelector('#image1').classList.toggle('hide');       
     }
     else if (getinput === quiz[counter].correctAns && counter%2 === 1) {
         p2Count++;
         document.querySelector(gridSelect).innerText=p2Name.innerText;
         console.log('player 2 gets a point');
+        // document.querySelector(`#image2`).classList.toggle('hide');
     }
     else {
         answer.style.backgroundColor = 'red';
         console.log(' Hope you get it right next time');
-        document.querySelector(gridSelect).innerText='';
+        document.querySelector(gridSelect).innerText= '';
     }
-    counter++;        
+    counter++;
     // to unlock the master winning quest  
-    if ( p1Count >=5 || p2Count >=5 )
-    {
-        winningQuest();
-        winQcount++;
-        //document.querySelector('#masterqDiv').innerText = winquiz.question[0];
+    if ( p1Count >= 5 )  {
+        winningQuest(p1Name.innerText);
+    }   
+    else if( p2Count >= 5 ) {
+        winningQuest(p2Name.innerText);
     }
+    
 }
 
 function displayHint(grid){
 
     // Reset answer textbox 
     answer.style.backgroundColor = 'white';
-    answer.innerText=' ';
-    // reset counter for question to zero on reaching maximum of 20
+    answer.value="";
+    // reset counter for question to zero on reaching maximum of 9
     if ( counter === counterMax ) {
         counter = 0;
         index=-1;
@@ -164,7 +191,7 @@ function displayHint(grid){
     if ( index < counter) {
         gridSelect= '.'+grid;
         document.querySelector(gridSelect).innerText=quiz[counter].question;
-        index = counter;
+        index++;                
     }
     else {
         setTimeout(()=>{
@@ -175,12 +202,30 @@ function displayHint(grid){
 
 function playerName()
 {
+     // Reset counter for players
+     if(p1Count>0 || p2Count>0){
+         let input=prompt("Do you want to reset game? Type 'y' or 'n'");
+         if( input === 'y')
+         {
+                p1Count=0;
+                p2Count=0;
+                counter=0;
+                index=-1;
+                p1Name.innerText= "";
+                p2Name.innerText= "";
+                document.querySelector('#masterqDiv').innerText="";
+                answer.value = "";
+                for (let i=1;i<=9;i++){
+                    console.log(`.grid${i}`);
+                    document.querySelector(`.grid${i}`).innerText= '';
+                }
+         
+        }
+     }
+
     let input= prompt("Enter First player's name:")
     p1Name.innerText=input;
     input= prompt("Enter Second player's name:")
     p2Name.innerText=input;
-    
-    // Reset counter for players
-    p1Count=0;
-    p2Count=0;
+        
 }
