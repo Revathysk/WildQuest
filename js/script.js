@@ -20,29 +20,24 @@ const quiz = [
         image: 'https://gifts.worldwildlife.org/gift-center/Images/large-species-photo/large-Harpy-Eagle-photo.jpg'
     },
     {
-        question: "Animal with 4 stomach, has red nose",
+        question: "Animal with 4 stomach, depicted with red nose during Christmas. ",
         correctAns: 'reindeer',
         image: 'https://www.greenpeace.org/static/planet4-canada-stateless/2018/06/140074_252367.jpg'
     },
     {
-        question: "Animal with unique finger print as human",
+        question: "Animal with unique and similar finger print as humans",
         correctAns: 'koala',
         image: 'https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg'
     },
     {
-        question: "Sealife with heart in head",
+        question: "Sealife with heart in head. Swims with body and has no fins",
         correctAns: 'shrimp',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMs5322MVDreww0an28ZGRV_lLMnmGO7r5Lml26whln5BzzjSQKRrFO0DwjFmfs3OR6dY&usqp=CAU'
     },
     {
-        question: "Sealife with no heart,brain and bone",
+        question: "Sealife with no heart,no brain and no bone. one of its species is almost immortal",
         correctAns: 'jellyfish',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUEU4ja1V7ulgWCTySoWoI0l8T8J6xs2g-A4_39VUranMb_FlhmnTcPBlfuwmsp3KfyQk&usqp=CAU'
-    },
-    {
-        question: " Has horn on top of nose and horn is made of hair...",
-        correctAns: 'rhino',
-        image: 'https://files.worldwildlife.org/wwfcmsprod/images/White_Rhino/story_full_width/15g9slqvru_white_rhino_42993643.jpg'
     },
     {
         question: "Lives in desert, can drink 25 gallons of water at a time",
@@ -85,7 +80,7 @@ const quiz = [
         image: 'https://www.worldatlas.com/r/w960-q80/upload/0a/99/a0/shutterstock-83394460.jpg'
     },
     {
-        question: 'Male animal that gives birth to offsprings',
+        question: 'Male sea animal that gives birth to offsprings',
         correctAns: 'seahorse' || 'seadragon',
         image: 'https://animalfactguide.com/wp-content/uploads/2021/01/sea_horse_is_horsey-e1609821832721.jpg'
     },
@@ -105,10 +100,15 @@ const quiz = [
         image: 'https://static.boredpanda.com/blog/wp-content/uploads/2015/05/sleeping-giraffes-7__880.jpg'
     },
     {
+        question: " Has horn on top of nose and horn is made of hair...",
+        correctAns: 'rhino',
+        image: 'https://files.worldwildlife.org/wwfcmsprod/images/White_Rhino/story_full_width/15g9slqvru_white_rhino_42993643.jpg'
+    },
+    {
         question: "Unlike my bear peers, i dont hibernate in winter and have extra bone just to eat",
         correctAns: 'panda',
         image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/portrait-of-a-giant-panda-eating-bamboo-royalty-free-image-1583635024.jpg'
-    },
+    },    
     {
         question: "I live in pride and know for courage ",
         correctAns: 'Lion',
@@ -280,6 +280,7 @@ function gameReset() {
             document.querySelector('#masterqDiv').innerText = "";
             document.querySelector('#masterqDiv').style.backgroundColor = 'gray';
             document.querySelector("#submitButton").classList.toggle('hide');
+            document.querySelector("#resetButton").classList.toggle('hide');
             // masterqDiv.classList.toggle('hide');
             answer.value = "";
             answer.style.backgroundColor = 'white';
