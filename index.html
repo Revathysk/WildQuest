@@ -12,14 +12,14 @@
 <body>
 
     <div class='homepage'>
-        
+
         <div class='header' id='firstDiv'> Wild -Quest </div>
 
         <div class='players' id='secondDiv'>
 
             <div class="player1 hide" id='player1Div'> Player 1 </div>
 
-            <div class="masterq hide" id='masterqDiv'> </div>
+            <div class="masterq hide" id='masterqDiv'> Winning Quest </div>
 
             <div class="player2 hide" id='player2Div'> Player 2 </div>
 
@@ -27,21 +27,31 @@
 
         <div class='instructions' id='instructDiv'>
             <p> Wild Quest is 2 player quiz game for kids.</p> <br>
-            <p> As you press contiune, 9 blocks will be displayed.</p> <br>
-            <p> Click start to enter Player names. Player 1 gets first turn </p><br>
-            <p> Click on any one of 9 boxs in the middel. A hint & fact about the animal is displayed.</p> <br>
+            <p> Enter players name & press contiune. </p> <br>
+            <p> Click on any one of the 9 boxs at middle.</p> <br>
+            <p> A hint & fact about the animal is displayed.</p> <br>
             <p> Type in your guess in textbox and press submit. </p> <br>
-            <p> Player gets a point for correct answer. Take turns. </p><br>
-            <p> Any player reaching 5 points, get to unlock Win Quest & correct guess, wins the game. </p><br>
+            <p> Score 5 points to unlock Winning Quest at the top. </p><br>
         </div>
 
-        <div id='continueDiv'>
+        <div class='' id='continueDiv'>
+            <label for="FirstPlayer"> Player 1 </label>
+            <input type="text" id='textBoxP1'>
+            <label for="SecondPlayer"> Player 2 </label>
+            <input type="text" id='textBoxP2'>
             <button class='button' id='continueButton' onclick="gameDisplay()"> Contiune </button>
         </div>
-        
+
         <!-- grid for 9 boxs to display questions -->
         <div class='middleDiv hide' id='thirdDiv'>
-            <div class='p1Score'> </div>
+
+            <div class='p1Score'>
+                <div class="fpscore1"></div>
+                <div class="fpscore2"></div>
+                <div class="fpscore3"></div>
+                <div class="fpscore4"></div>
+                <div class="fpscore5"></div>
+            </div>
             <div class='qgrid' id='qgridDiv'>
                 <div class="qbox grid1" onclick="displayHint('grid1')">
                     <!-- <img id='image1' class='hide' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Harpia_harpyja_-Sao_Paulo_Zoo%2C_Brasil_-adult-8a.jpg/170px-Harpia_harpyja_-Sao_Paulo_Zoo%2C_Brasil_-adult-8a.jpg" alt="Harpy Eagle"> -->
@@ -57,14 +67,20 @@
                 <div class="qbox grid8" onclick="displayHint('grid8')"> </div>
                 <div class="qbox grid9" onclick="displayHint('grid9')"> </div>
             </div>
-            <div class='p2Score'> </div>
+            <div class='p2Score'>
+                <div class="spscore1"></div>
+                <div class="spscore2"></div>
+                <div class="spscore3"></div>
+                <div class="spscore4"></div>
+                <div class="spscore5"></div>
+            </div>
         </div>
 
         <div class='footer' id='fourDiv'>
 
-            <div class='hide' id='startDiv'>
-                <button class='button' id='startButton' onclick="playerName()">
-                    START                    
+            <div class='hide' id='resetDiv'>
+                <button class='button' id='resetButton' onclick="gameReset()">
+                    RESET
                 </button>
             </div>
 
