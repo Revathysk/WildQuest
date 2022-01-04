@@ -30,7 +30,7 @@ const quiz = [
         image: 'https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg'
     },
     {
-        question: "Sealife with heart in head. Swims with body and has no fins",
+        question: "Sealife with it's heart in head. Has no fins and swims with body",
         correctAns: 'shrimp',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMs5322MVDreww0an28ZGRV_lLMnmGO7r5Lml26whln5BzzjSQKRrFO0DwjFmfs3OR6dY&usqp=CAU'
     },
@@ -50,14 +50,9 @@ const quiz = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/PorcupineCabelasSpringfield0511.jpg/220px-PorcupineCabelasSpringfield0511.jpg'
     },
     {
-        question: "Digs netwrok of chambers and tunnels called sett",
+        question: "Animal that digs network of chambers and tunnels called sett. Qualified to get badge for digging",
         correctAns: 'badger',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Badger_laying_on_ground._-_DPLA_-_0335977b4d1504edc799834081ca4fd5.jpg/800px-Badger_laying_on_ground._-_DPLA_-_0335977b4d1504edc799834081ca4fd5.jpg'
-    },
-    {
-        question: "I'm slow in moving...can sleep for 3 years continuously",
-        correctAns: 'snail',
-        image: 'https://cf.ltkcdn.net/kids/images/std/239664-800x493r1-snail.webp'
     },
     {
         question: 'An average African elephant weighs about 12,000 pounds. Type in true or false',
@@ -103,6 +98,11 @@ const quiz = [
         question: " Has horn on top of nose and horn is made of hair...",
         correctAns: 'rhino',
         image: 'https://files.worldwildlife.org/wwfcmsprod/images/White_Rhino/story_full_width/15g9slqvru_white_rhino_42993643.jpg'
+    },
+    {
+        question: "I'm slow in moving...can sleep for 3 years continuously",
+        correctAns: 'snail',
+        image: 'https://cf.ltkcdn.net/kids/images/std/239664-800x493r1-snail.webp'
     },
     {
         question: "Unlike my bear peers, i dont hibernate in winter and have extra bone just to eat",
@@ -166,7 +166,7 @@ function gameDisplay() {
     document.querySelector("#submitButton").classList.toggle('hide');
     setTimeout(() => {
        checkMasterQ(player);
-    }, 15000);
+    }, 20000);
 }
 
 function checkMasterQ(player) {
@@ -215,7 +215,7 @@ function checkAnswer() {
             }
             document.querySelector(gridSelect).innerText = '';
             let crtimage = document.createElement('img');
-            crtimage.setAttribute("style", "width: 12vw; height: 16vh; -webkit-border-radius: 15px;");
+            crtimage.setAttribute("style", "width: 12vw; height: 17vh; -webkit-border-radius: 15px;");
             crtimage.src = quiz[index].image;
             document.querySelector(gridSelect).appendChild(crtimage);
         }
