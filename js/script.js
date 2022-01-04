@@ -3,6 +3,8 @@
 const p1Name = document.querySelector("#player1Div");
 const p2Name = document.querySelector("#player2Div");
 const answer = document.querySelector('#textBox');
+const p1Score = document.querySelector('.p1Score');
+const p2Score = document.querySelector('.p2Score'); 
 let fiveCount = 5;
 let p1Count = 0;
 let p2Count = 0;
@@ -168,6 +170,10 @@ function gameDisplay() {
        checkMasterQ(player);
     }, 20000);
 }
+function playAudio() {
+    var audio = new Audio('unlock-game-notification.wav');
+    audio.play();
+}
 
 function checkMasterQ(player) {
 
@@ -176,7 +182,7 @@ function checkMasterQ(player) {
     if (getinput === quiz[winQcount].correctAns) {
         answer.style.backgroundColor = 'green';
         document.querySelector('#masterqDiv').innerText = `Congrats! ${player},you won.Press reset, to start from first`;
-//        document.querySelector('#masterqDiv').innerText = `Congrats! you won. Press Start, to try again`;
+//      document.querySelector('#masterqDiv').innerText = `Congrats! you won. Press Start, to try again`;
 
         setTimeout(function () {
             confetti.start()
@@ -198,6 +204,7 @@ function checkMasterQ(player) {
     winQcount++;
     resetDiv.classList.toggle('hide');
 }
+
 
 function checkAnswer() {
     let getinput = answer.value.toLowerCase();
@@ -227,11 +234,15 @@ function checkAnswer() {
 
         // to unlock the master winning quest  
         if (p1Count >= fiveCount) {
+            playAudio()
+            p1Score.setAttribute("style","box-shadow: 0px 0px 10px 10px white;")
             setTimeout(() => {
             winningQuest(p1Name.innerText)
         }, 1000);         
         }
         else if (p2Count >= fiveCount) {    
+            playAudio()
+            p2Score.setAttribute("style","box-shadow: 0px 0px 10px 10px white;")
             setTimeout(() => {
                 winningQuest(p2Name.innerText)
              }, 1000);         
