@@ -227,11 +227,14 @@ function checkAnswer() {
 
         // to unlock the master winning quest  
         if (p1Count >= fiveCount) {
-            winningQuest(p1Name.innerText);
-            
+            setTimeout(() => {
+            winningQuest(p1Name.innerText)
+        }, 1000);         
         }
         else if (p2Count >= fiveCount) {    
-            winningQuest(p2Name.innerText);            
+            setTimeout(() => {
+                winningQuest(p2Name.innerText)
+             }, 1000);         
         }
         index++; // increment of clicking check button
     }
